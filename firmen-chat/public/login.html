@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anmelden – Firmen-Chat</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/login.js"></script>
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <div class="brand"><img src="/favicon.svg" alt="" width="36" height="36"><span>Firmen-Chat</span></div>
+
+    <form id="login-form" autocomplete="on">
+      <h1>Anmelden</h1>
+      <div class="field"><label for="username">Benutzername</label><input id="username" name="username" autocomplete="username" required></div>
+      <div class="field"><label for="password">Passwort</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+      <div class="form-error" id="login-error" role="alert"></div>
+      <button class="btn btn-primary btn-block" type="submit">Anmelden</button>
+    </form>
+
+    <form id="pw-form" hidden>
+      <h1>Passwort ändern</h1>
+      <p class="muted">Bitte vergeben Sie vor der ersten Nutzung ein eigenes Passwort (mind. 10 Zeichen, 3 von: Klein-, Großbuchstaben, Ziffern, Sonderzeichen).</p>
+      <div class="field"><label for="pw-current">Aktuelles Passwort</label><input id="pw-current" type="password" autocomplete="current-password" required></div>
+      <div class="field"><label for="pw-new">Neues Passwort</label><input id="pw-new" type="password" autocomplete="new-password" minlength="10" required></div>
+      <div class="field"><label for="pw-repeat">Neues Passwort wiederholen</label><input id="pw-repeat" type="password" autocomplete="new-password" minlength="10" required></div>
+      <div class="form-error" id="pw-error" role="alert"></div>
+      <button class="btn btn-primary btn-block" type="submit">Passwort speichern</button>
+    </form>
+
+    <p class="fineprint">Interne Anwendung. Nutzung wird gemäß Betriebsvereinbarung protokolliert (nur Metadaten, keine Inhalte).</p>
+  </main>
+</body>
+</html>

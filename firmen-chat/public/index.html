@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firmen-Chat</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/chat.js"></script>
+</head>
+<body class="chat-page">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><img src="/favicon.svg" alt="" width="28" height="28"><span>Firmen-Chat</span></div>
+    <button class="btn btn-primary btn-block" id="new-chat" type="button">＋ Neuer Chat</button>
+    <div class="conv-search"><input id="conv-filter" type="search" placeholder="Chats durchsuchen" aria-label="Chats durchsuchen"></div>
+    <nav class="conv-list" id="conv-list" aria-label="Unterhaltungen"></nav>
+    <div class="sidebar-foot">
+      <div class="quota" id="quota"></div>
+      <div class="user-box">
+        <span id="user-name"></span>
+        <div class="user-actions">
+          <a href="/admin" id="admin-link" class="btn btn-ghost btn-sm" hidden>Verwaltung</a>
+          <button class="btn btn-ghost btn-sm" id="change-pw" type="button">Passwort</button>
+          <button class="btn btn-ghost btn-sm" id="logout" type="button">Abmelden</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="chat-main">
+    <header class="chat-header">
+      <button class="btn btn-ghost btn-icon" id="toggle-sidebar" type="button" aria-label="Seitenleiste ein-/ausblenden">☰</button>
+      <label class="model-pick">
+        <span class="sr-only">Modell</span>
+        <select id="model-select" aria-label="Modell wählen"></select>
+      </label>
+      <span class="badge" id="model-badge"></span>
+    </header>
+    <div class="banner" id="banner" hidden></div>
+
+    <section class="messages" id="messages" aria-live="polite">
+      <div class="empty" id="empty">
+        <h1>Wie kann ich helfen?</h1>
+        <p class="muted" id="empty-hint"></p>
+      </div>
+    </section>
+
+    <form class="composer" id="composer">
+      <div class="attachments" id="attachments"></div>
+      <div class="composer-row">
+        <label class="btn btn-ghost btn-icon attach" title="Textdatei anhängen (.txt, .md, .csv, .json, Code)">
+          📎<input type="file" id="file-input" multiple accept=".txt,.md,.csv,.json,.xml,.html,.log,.yaml,.yml,.js,.ts,.py,.java,.cs,.sql,.sh,.css,text/*">
+        </label>
+        <textarea id="input" rows="1" placeholder="Nachricht eingeben …" title="Enter = senden, Shift+Enter = neue Zeile" aria-label="Nachricht"></textarea>
+        <button class="btn btn-primary" id="send" type="submit">Senden</button>
+        <button class="btn btn-danger" id="stop" type="button" hidden>Stopp</button>
+      </div>
+      <p class="fineprint" id="composer-hint"></p>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# Start:   docker compose up -d
+# Mit lokalem Modell-Server (Ollama):   docker compose --profile lokal up -d
+services:
+  firmen-chat:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      # Nur lokal binden; Zugriff für Mitarbeiter über einen Reverse-Proxy mit TLS.
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - chat-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["lokal"]
+    restart: unless-stopped
+    volumes:
+      - ollama-models:/root/.ollama
+    # Für NVIDIA-GPUs einkommentieren:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+volumes:
+  chat-data:
+  ollama-models:

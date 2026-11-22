@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verwaltung – Firmen-Chat</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/admin.js"></script>
+</head>
+<body class="admin-page">
+  <header class="admin-header">
+    <div class="brand"><img src="/favicon.svg" alt="" width="28" height="28"><span>Firmen-Chat · Verwaltung</span></div>
+    <nav class="tabs" role="tablist" id="tabs">
+      <button type="button" role="tab" data-tab="overview" class="active">Übersicht</button>
+      <button type="button" role="tab" data-tab="models">Modelle</button>
+      <button type="button" role="tab" data-tab="providers">Anbieter</button>
+      <button type="button" role="tab" data-tab="users">Benutzer</button>
+      <button type="button" role="tab" data-tab="policies">Richtlinien</button>
+      <button type="button" role="tab" data-tab="audit">Protokoll</button>
+    </nav>
+    <div class="admin-user"><a class="btn btn-ghost btn-sm" href="/">Zum Chat</a><button class="btn btn-ghost btn-sm" id="logout" type="button">Abmelden</button></div>
+  </header>
+  <main class="admin-main" id="view"></main>
+</body>
+</html>
