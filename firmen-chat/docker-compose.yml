@@ -1,18 +1,19 @@
-# Start:   docker compose up -d
-# Mit lokalem Modell-Server (Ollama):   docker compose --profile lokal up -d
+# Start:                          docker compose up -d --build
+# Mit lokalem Modell-Server:      docker compose --profile lokal up -d --build
 services:
   firmen-chat:
     build: .
     restart: unless-stopped
     env_file: .env
     ports:
-      # Nur lokal binden; Zugriff für Mitarbeiter über einen Reverse-Proxy mit TLS.
+      # Nur lokal binden; Zugriff für Mitarbeiter über einen Reverse-Proxy mit HTTPS.
       - "127.0.0.1:3000:3000"
     volumes:
       - chat-data:/data
     read_only: true
     tmpfs:
       - /tmp
+      - /app/.next/cache
     security_opt:
       - no-new-privileges:true
     cap_drop:

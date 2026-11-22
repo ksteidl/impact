@@ -1,5 +1,8 @@
 node_modules
+.next
 data
 .env
-test
+tests
 *.md
+Dockerfile
+docker-compose.yml
